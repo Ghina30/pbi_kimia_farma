@@ -1,0 +1,12 @@
+
+CREATE TABLE kimia_farma.kf_analisa AS
+SELECT ft.transaction_id, ft.date, ft.branch_id, ft.customer_name, ft.product_id, ft.discount_percentage, kc.kota, kc.provinsi, kc.rating, p.product_name
+FROM `rakamin-kf-analytics-416208.kimia_farma.kf_final_transaction` as ft
+
+LEFT JOIN `rakamin-kf-analytics-416208.kimia_farma.kf_kantor_cabang` as kc 
+  on ft.branch_id = kc.branch_id
+
+
+LEFT JOIN `rakamin-kf-analytics-416208.kimia_farma.kf_product` as p 
+  on p.product_id = ft.product_id
+;
